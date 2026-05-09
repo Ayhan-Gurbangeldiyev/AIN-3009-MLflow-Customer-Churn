@@ -1,0 +1,11 @@
+MLflow serving verification
+
+Command:
+python src/serve_test.py --url http://127.0.0.1:5001/invocations --data data/telco_churn.csv --sample-index 0
+
+Prediction response:
+{
+  "predictions": [
+    1
+  ]
+}

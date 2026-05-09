@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Churn Prediction with MLflow</title>
+  <style>
+    :root {
+      --bg: #0f1720;
+      --panel: #162230;
+      --ink: #f7fbff;
+      --muted: #aab8c7;
+      --line: #2c3e50;
+      --accent: #5cc8a1;
+      --accent-2: #f2c14e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    main {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+    section {
+      min-height: 100vh;
+      padding: 64px 76px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: center;
+      gap: 28px;
+      border-bottom: 1px solid var(--line);
+      scroll-snap-align: start;
+    }
+    h1, h2 {
+      margin: 0;
+      letter-spacing: 0;
+      line-height: 1.04;
+    }
+    h1 { font-size: 68px; max-width: 1050px; }
+    h2 { font-size: 48px; }
+    p, li {
+      font-size: 24px;
+      line-height: 1.42;
+      color: var(--muted);
+      max-width: 1050px;
+    }
+    ul { margin: 0; padding-left: 28px; }
+    .kicker {
+      color: var(--accent);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: Arial, sans-serif;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 22px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 34px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .metric span {
+      color: var(--muted);
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+    }
+    img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      background: #0b1118;
+    }
+    .two {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+    }
+    code {
+      color: var(--accent-2);
+      font-family: Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    @media (max-width: 900px) {
+      section { padding: 42px 28px; }
+      h1 { font-size: 44px; }
+      h2 { font-size: 34px; }
+      p, li { font-size: 19px; }
+      .grid, .two { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <div class="kicker">AIN-3009 Delivering AI Applications with MLOps</div>
+      <h1>Customer Churn Prediction with MLflow</h1>
+      <p>End-to-end machine learning lifecycle management for telecom customer churn: tracking, tuning, registry, serving, and monitoring.</p>
+    </section>
+
+    <section>
+      <div class="kicker">Problem and Dataset</div>
+      <h2>Predict customers likely to leave</h2>
+      <ul>
+        <li>Domain: telecommunications customer retention.</li>
+        <li>Dataset: Telco Customer Churn, 7,043 customers and 21 columns.</li>
+        <li>Target: <code>Churn</code>, encoded as binary Yes/No outcome.</li>
+        <li>Business goal: identify high-risk customers for retention campaigns.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="kicker">Lifecycle Workflow</div>
+      <h2>One repeatable MLflow pipeline</h2>
+      <div class="grid">
+        <div class="metric"><strong>1</strong><span>Preprocess data with sklearn pipelines</span></div>
+        <div class="metric"><strong>3</strong><span>Baseline models trained and compared</span></div>
+        <div class="metric"><strong>63</strong><span>Total MLflow runs logged</span></div>
+        <div class="metric"><strong>20</strong><span>RandomizedSearchCV candidates</span></div>
+        <div class="metric"><strong>v1</strong><span>Registered production model</span></div>
+        <div class="metric"><strong>4</strong><span>Monitoring batches simulated</span></div>
+      </div>
+    </section>
+
+    <section class="two">
+      <div>
+        <div class="kicker">Experiment Tracking</div>
+        <h2>MLflow records every run</h2>
+        <p>Baseline, tuning, randomized search, and monitoring runs are visible in the same experiment.</p>
+      </div>
+      <img src="../screenshots/01_experiments_runs.png" alt="MLflow experiment run list">
+    </section>
+
+    <section>
+      <div class="kicker">Model Results</div>
+      <h2>Random Forest is the production candidate</h2>
+      <div class="grid">
+        <div class="metric"><strong>0.8476</strong><span>Best CV ROC-AUC from RandomizedSearchCV</span></div>
+        <div class="metric"><strong>0.8434</strong><span>Best production test ROC-AUC</span></div>
+        <div class="metric"><strong>0.6316</strong><span>Best production F1-score</span></div>
+      </div>
+      <p>RandomizedSearchCV strengthened the tuning process, while the final production model was selected by held-out test performance.</p>
+    </section>
+
+    <section class="two">
+      <div>
+        <div class="kicker">Model Registry</div>
+        <h2>Production is versioned</h2>
+        <p><code>ChurnPredictionModel</code> has version 1 with <code>@production</code> and <code>@staging</code> aliases.</p>
+      </div>
+      <img src="../screenshots/05_production_model.png" alt="MLflow production model alias page">
+    </section>
+
+    <section class="two">
+      <div>
+        <div class="kicker">Deployment</div>
+        <h2>Served with MLflow Models</h2>
+        <p>The production model was served locally and tested through the <code>/invocations</code> endpoint. A sample customer returned prediction <code>1</code>, meaning churn risk.</p>
+      </div>
+      <img src="../screenshots/02_best_run_metrics.png" alt="Best model run page">
+    </section>
+
+    <section class="two">
+      <div>
+        <div class="kicker">Monitoring</div>
+        <h2>Performance tracked over batches</h2>
+        <p>Four simulated production batches log accuracy, precision, recall, F1-score, ROC-AUC, churn rate, tenure, and charges.</p>
+      </div>
+      <img src="../screenshots/03_monitoring_run.png" alt="Monitoring run page">
+    </section>
+
+    <section>
+      <div class="kicker">Conclusion</div>
+      <h2>MLflow turns a model into a managed lifecycle</h2>
+      <ul>
+        <li>Experiment tracking makes comparisons auditable.</li>
+        <li>Model Registry creates a clear production handoff.</li>
+        <li>Serving and monitoring complete the practical MLOps loop.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

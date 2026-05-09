@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+.venv/
+.env
+
+.ipynb_checkpoints/
+
+mlruns/
+mlartifacts/
+mlflow.db
+
+*.log
+*.tmp
+*.zip

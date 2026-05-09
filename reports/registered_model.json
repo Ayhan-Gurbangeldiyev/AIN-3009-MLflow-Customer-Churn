@@ -1,0 +1,10 @@
+{
+  "model_name": "ChurnPredictionModel",
+  "version": 1,
+  "source_run_id": "d33c7465a2084877bfbe014f2fbb0da2",
+  "source_model_uri": "runs:/d33c7465a2084877bfbe014f2fbb0da2/model",
+  "metric_name": "roc_auc",
+  "metric_value": 0.8433762174171382,
+  "run_type": "tuning",
+  "registered_at": 1778339041
+}
