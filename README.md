@@ -2,6 +2,7 @@
 
 Course: AIN-3009 Delivering AI Applications with MLOps  
 Project: Term Project - Development and Evaluation of a Machine Learning Lifecycle Management System using MLflow
+GitHub Repository: https://github.com/Ayhan-Gurbangeldiyev/AIN-3009-MLflow-Customer-Churn
 
 This term project demonstrates an end-to-end machine learning lifecycle management system using MLflow. The selected domain is telecommunications, and the predictive task is customer churn prediction using the Telco Customer Churn dataset.
 

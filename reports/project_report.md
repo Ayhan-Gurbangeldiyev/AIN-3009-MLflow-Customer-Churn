@@ -2,6 +2,7 @@
 
 Course: AIN-3009 Delivering AI Applications with MLOps  
 Project Type: Term Project
+GitHub Repository: https://github.com/Ayhan-Gurbangeldiyev/AIN-3009-MLflow-Customer-Churn
 
 ## 1. Introduction
 
