@@ -235,6 +235,18 @@ Presentation outline:
 presentation/presentation_outline.md
 ```
 
+Editable PowerPoint deck with speaker notes:
+
+```text
+presentation/Customer_Churn_Prediction_with_MLflow.pptx
+```
+
+Speaker notes script:
+
+```text
+presentation/presentation_script.md
+```
+
 Browser-based slide deck:
 
 ```text

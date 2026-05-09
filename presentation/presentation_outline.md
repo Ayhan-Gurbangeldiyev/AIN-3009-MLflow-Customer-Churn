@@ -1,4 +1,4 @@
-# 5-Minute Presentation Outline
+# 8-Minute Presentation Outline
 
 ## Slide 1: Title
 
