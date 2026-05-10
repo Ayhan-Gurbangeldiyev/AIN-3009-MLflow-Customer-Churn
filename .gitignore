@@ -16,3 +16,5 @@ mlflow.db
 *.tmp
 *.zip
 presentation/preview/
+screenshots/*contact_sheet.png
+PRJ-AyhanGurbangeldiyev-2020053/
